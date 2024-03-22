@@ -51,56 +51,62 @@ sa=0 sb=0 sd=0
 model=pfet_g5v0d10v5
 spiceprefix=X
 }
-C {devices/code_shown.sym} 540 -960 0 0 {name=NGSPICE only_toplevel=false value="* ngspice commands
+C {devices/code_shown.sym} 530 -1070 0 0 {name=NGSPICE only_toplevel=false value="* ngspice commands
 .param W=1
 .param L=0.5
 .options savecurrents
 .dc vg 100m 3.3 10m
 .control
-set plot_idn = ' '
-set plot_gmid = ' '
-set plot_gds = ' '
-set plot_ro = ' '
-set plot_avo = ' '
-set plot_ft = ' '
-set plot_vdsat = ' '
-set plot_sweep = 'L = 0.5 0.75 1 2 5 10 20'
-foreach l_act 0.5 0.75 1 2 5 10 20
-    alterparam L = $l_act
-    reset
-    save all
-    echo l = $l_act
-    save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gm]
-    save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gds]
-    save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[cds]
-    save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[id]
-    save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[w]
-    save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[l]
-    save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
-    run
-    remzerovec
-    let idn = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[id] / @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[w] * 1e-6
-    let gmid = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gm] / @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[id]
-    let gds = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gds]
-    let ro = 1 / @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gds]
-    let avo = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gm] / @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gds]
-    let vdsat = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
-    let ft =  @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gm] / (2 * PI * @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[cds])
-    set plot_idn = ( $plot_idn \{$curplot\}.idn )
-    set plot_gmid = ( $plot_gmid \{$curplot\}.gmid vs \{$curplot\}.idn )
-    set plot_gds = ( $plot_gds \{$curplot\}.gds vs \{$curplot\}.idn )
-    set plot_ro = ( $plot_ro \{$curplot\}.ro vs \{$curplot\}.idn )
-    set plot_avo = ( $plot_avo \{$curplot\}.avo vs \{$curplot\}.idn )
-    set plot_ft = ( $plot_ft \{$curplot\}.ft vs \{$curplot\}.idn )
-    set plot_vdsat = ( $plot_vdsat \{$curplot\}.vdsat vs \{$curplot\}.idn )
+  foreach vd_act 100m 400m 550m 800m 1100m
+    set plot_idn = ' '
+    set plot_gmid = ' '
+    set plot_gds = ' '
+    set plot_avo = ' '
+    set plot_ft = ' '
+    set plot_vdsat = ' '
+    set plot_title = 'PFET normalized characteristic for L = 0.5u 1u 2u 5u 10u 20u'
+    set idn_file = charac_pfet_idn@vds\{$vd_act\}.ps
+    set gmid_file = charac_pfet_gmid@vds\{$vd_act\}.ps
+    set gds_file = charac_pfet_gds@vds\{$vd_act\}.ps
+    set avo_file = charac_pfet_avo@vds\{$vd_act\}.ps
+    set ft_file = charac_pfet_ft@vds\{$vd_act\}.ps
+    set vdsat_file = charac_pfet_vdsat@vds\{$vd_act\}.ps
+    foreach l_act 0.5 0.75 1 2 5 10 20
+        alterparam L = $l_act
+        reset
+        save all
+        save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gm]
+        save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gds]
+        save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[cds]
+        save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[id]
+        save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[w]
+        save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[l]
+        save @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
+        alter vd $vd_act
+        echo l = $l_act
+        echo vds = $vd_act
+        run
+        remzerovec
+        let idn = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[id] / @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[w] * 1e-6
+        let gmid = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gm] / @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[id]
+        let gds = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gds]
+        let avo = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gm] / @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gds]
+        let vdsat = @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
+        let ft =  @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[gm] / (2 * PI * @m.xm1.msky130_fd_pr__pfet_g5v0d10v5[cds])
+        set plot_idn = ( $plot_idn \{$curplot\}.idn )
+        set plot_gmid = ( $plot_gmid \{$curplot\}.gmid vs \{$curplot\}.idn )
+        set plot_gds = ( $plot_gds \{$curplot\}.gds vs \{$curplot\}.idn )
+        set plot_avo = ( $plot_avo \{$curplot\}.avo vs \{$curplot\}.idn )
+        set plot_ft = ( $plot_ft \{$curplot\}.ft vs \{$curplot\}.idn )
+        set plot_vdsat = ( $plot_vdsat \{$curplot\}.vdsat vs \{$curplot\}.idn )
+      end
+      hardcopy $idn_file $plot_idn ylog ylimit 1e-9 1e-3 xlabel 'Vgs' ylabel 'Id / W*' title $plot_title
+      hardcopy $gmid_file $plot_gmid xlog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'gm / Id' title $plot_title
+      hardcopy $gds_file $plot_gds loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'gds' title $plot_title
+      hardcopy $avo_file $plot_avo loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'Avo' title $plot_title
+      hardcopy $ft_file $plot_ft loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'ft' title $plot_title
+      hardcopy $vdsat_file $plot_vdsat xlog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'Vdsat' title $plot_title
   end
-  hardcopy charac_pfet_idn.ps $plot_idn ylog ylimit 1e-9 1e-3 xlabel 'Vgs' ylabel 'Id / W*' title 'PFET normalized characteristic ($plot_sweep)'
-  hardcopy charac_pfet_gmid.ps $plot_gmid xlog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'gm / Id' title 'PFET normalized characteristic ($plot_sweep)'
-  hardcopy charac_pfet_gds.ps $plot_gds loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'gds' title 'PFET normalized characteristic ($plot_sweep)'
-  hardcopy charac_pfet_ro.ps $plot_ro loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'Ro' title 'PFET normalized characteristic ($plot_sweep)'
-  hardcopy charac_pfet_avo.ps $plot_avo loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'Avo' title 'PFET normalized characteristic ($plot_sweep)'
-  hardcopy charac_pfet_ft.ps $plot_ft loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'ft' title 'PFET normalized characteristic ($plot_sweep)'
-  hardcopy charac_pfet_vdsat.ps $plot_vdsat xlog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'Vdsat' title 'PFET normalized characteristic ($plot_sweep)'
   quit
 .endc
 "}
