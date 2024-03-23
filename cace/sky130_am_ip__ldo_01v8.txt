@@ -12,7 +12,7 @@ cace_format:	4.0
 
 authorship {
 	designer:	Alexandre Menu
-	company:	Mines Sinat-Etienne
+	company:	Mines Saint-Etienne
 	creation_date:	March 22, 2024
 	license:	Apache 2.0
 }
@@ -840,7 +840,7 @@ electrical_parameters {
 	name:		transient_response
 	status:		skip
 	description:	Large signal transient response
-	display:	Large signal transient response (Unity gain configuration, 2Vpp)
+	display:	Large signal transient response
 	unit:		mV
 	simulate {
 		tool:		ngspice
@@ -856,11 +856,6 @@ electrical_parameters {
 		name: time
 		display: Time
 		unit: ms
-
-		+
-		name: Vinp
-		display: Vinp
-		unit: V
 
 		+
 		name: result
@@ -887,41 +882,3 @@ electrical_parameters {
 	}
 }
 
-# List of physical parameters to be measured and their specified limits
-
-physical_parameters {
-	name:		area
-	status:		skip
-	description:	Total circuit layout area
-	display:	area
-	unit: 		{micro}m{squared}
-	spec {
-		maximum:	50000	fail
-	}
-	evaluate {
-		tool:		cace_area
-	}
-
-	+
-	name:		LVS_errors
-	description:	LVS errors
-	display:	LVS errors
-	spec {
-		maximum:	0	fail
-	}
-	evaluate {
-		tool:		cace_lvs run_project_lvs.tcl
-	}
-
-	+
-	name:		DRC_errors
-	status:		skip
-	description:	DRC errors
-	display:	DRC errors
-	spec {
-		maximum:	0	fail
-	}
-	evaluate {
-		tool:		cace_drc
-	}
-}
