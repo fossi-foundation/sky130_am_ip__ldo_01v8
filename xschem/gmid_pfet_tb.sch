@@ -71,7 +71,7 @@ C {devices/code_shown.sym} 530 -1070 0 0 {name=NGSPICE only_toplevel=false value
     set avo_file = charac_pfet_avo@vds\{$vd_act\}.ps
     set ft_file = charac_pfet_ft@vds\{$vd_act\}.ps
     set vdsat_file = charac_pfet_vdsat@vds\{$vd_act\}.ps
-    foreach l_act 0.5 0.75 1 2 5 10 20
+    foreach l_act 0.5 1 2 5 10 20
         alterparam L = $l_act
         reset
         save all
