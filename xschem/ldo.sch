@@ -72,9 +72,9 @@ lab=#net5}
 N 2640 -260 2640 -240 {
 lab=#net5}
 N 2440 -190 2480 -190 {
-lab=vref}
+lab=v_m}
 N 2800 -190 2840 -190 {
-lab=vx}
+lab=v_p}
 N 2520 -190 2540 -190 {
 lab=vdd}
 N 2540 -580 2540 -190 {
@@ -292,7 +292,7 @@ lab=#net10}
 N 3460 -370 3520 -370 {
 lab=#net10}
 N 3560 -340 3560 -220 {
-lab=vy}
+lab=#net24}
 N 3460 -190 3520 -190 {
 lab=vcn}
 N 3460 -90 3520 -90 {
@@ -302,7 +302,7 @@ lab=vss}
 N 3620 -20 3760 -20 {
 lab=vss}
 N 3760 -160 3760 -120 {
-lab=vx}
+lab=v_p}
 N 3760 -260 3760 -220 {
 lab=out}
 N 3760 -290 3780 -290 {
@@ -312,7 +312,7 @@ lab=vss}
 N 3760 -20 3780 -20 {
 lab=vss}
 N 3710 -140 3760 -140 {
-lab=vx}
+lab=v_p}
 N 3620 -580 3760 -580 {
 lab=vdd}
 N 3760 -580 3760 -320 {
@@ -323,24 +323,24 @@ N 810 -580 1020 -580 {
 lab=vdd}
 N 780 -20 840 -20 {
 lab=vss}
-N 2440 -80 2480 -80 {
-lab=vin}
 N 2520 -130 3200 -130 {
 lab=#net7}
 N 2760 -150 3000 -150 {
 lab=#net6}
-N 3560 -290 3660 -290 {
-lab=vy}
+N 860 -580 860 -440 {
+lab=vdd}
+N 2270 -190 2320 -190 {
+lab=v_m}
+N 2270 -110 2320 -110 {
+lab=v_p}
+N 3560 -290 3720 -290 {
+lab=#net24}
 N 3460 -300 3460 -260 {
 lab=#net10}
 N 3460 -260 3480 -260 {
 lab=#net10}
 N 3540 -260 3560 -260 {
-lab=vy}
-N 3660 -290 3720 -290 {
-lab=vy}
-N 860 -580 860 -440 {
-lab=vdd}
+lab=#net24}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 880 -90 0 1 {name=M1
 W=1
 L=20
@@ -429,28 +429,83 @@ model=nfet_g5v0d10v5
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 1880 -190 1 1 {name=p11 sig_type=std_logic lab=vcn}
-C {devices/code_shown.sym} 2990 -1190 0 0 {name=s1 only_toplevel=false value="vref vref 0 1.2
-vss vss 0 0
-vdd vdd 0 pwl(0 0 1u 0 2u 3.3 300u 3.3) dc 3.3 ac 1
+C {devices/code_shown.sym} 4010 -1080 0 0 {name=s1 only_toplevel=false value="vss vss 0 0
+vref v_m 0 1.2
+iout out 0 100u
 * vdd vdd 0 3.3
-* vin vin 0 1.2 ac 1
+vdd vdd 0 3.3 ac 1
+* vin v_p 0 1.2 ac 1
 .option savecurrents
 .control
 save all
+save @m.xm25.msky130_fd_pr__pfet_g5v0d10v5[gds]
+save @m.xm25.msky130_fd_pr__pfet_g5v0d10v5[gm]
 save @m.xm27.msky130_fd_pr__pfet_g5v0d10v5[gds]
+save @m.xm29.msky130_fd_pr__pfet_g5v0d10v5[gds]
+save @m.xm29.msky130_fd_pr__pfet_g5v0d10v5[gm]
+save @m.xm31.msky130_fd_pr__nfet_g5v0d10v5[gds]
+save @m.xm31.msky130_fd_pr__nfet_g5v0d10v5[gm]
+save @m.xm33.msky130_fd_pr__nfet_g5v0d10v5[gds]
+save @m.xm8.msky130_fd_pr__pfet_g5v0d10v5[gds]
+save @m.xm8.msky130_fd_pr__pfet_g5v0d10v5[gm]
+save @m.xm8.msky130_fd_pr__pfet_g5v0d10v5[cgs]
+save @m.xm9.msky130_fd_pr__nfet_g5v0d10v5[gds]
+save @m.xm9.msky130_fd_pr__nfet_g5v0d10v5[gm]
+save @m.xm10.msky130_fd_pr__nfet_g5v0d10v5[gds]
+save @m.xm11.msky130_fd_pr__nfet_g5v0d10v5[gds]
+save @m.xm11.msky130_fd_pr__nfet_g5v0d10v5[gm]
+save @m.xm11.msky130_fd_pr__nfet_g5v0d10v5[cgs]
+
 op
+let a31 = @m.xm31.msky130_fd_pr__nfet_g5v0d10v5[gm] / @m.xm31.msky130_fd_pr__nfet_g5v0d10v5[gds]
+let a29 = @m.xm29.msky130_fd_pr__pfet_g5v0d10v5[gm] / @m.xm29.msky130_fd_pr__pfet_g5v0d10v5[gds]
+let a9 = @m.xm9.msky130_fd_pr__nfet_g5v0d10v5[gm] / @m.xm9.msky130_fd_pr__nfet_g5v0d10v5[gds]
+let a11 = @m.xm11.msky130_fd_pr__nfet_g5v0d10v5[gm] / @m.xm11.msky130_fd_pr__nfet_g5v0d10v5[gds]
+
+let gds25 = @m.xm25.msky130_fd_pr__pfet_g5v0d10v5[gds]
+let gds27 = @m.xm27.msky130_fd_pr__pfet_g5v0d10v5[gds]
+let gds29 = @m.xm29.msky130_fd_pr__pfet_g5v0d10v5[gds]
+let gds31 = @m.xm31.msky130_fd_pr__nfet_g5v0d10v5[gds]
+let gds33 = @m.xm33.msky130_fd_pr__nfet_g5v0d10v5[gds]
+let gds8 = @m.xm8.msky130_fd_pr__pfet_g5v0d10v5[gds]
+let gds9 = @m.xm9.msky130_fd_pr__nfet_g5v0d10v5[gds]
+let gds10 = @m.xm10.msky130_fd_pr__nfet_g5v0d10v5[gds]
+let gds11 = @m.xm11.msky130_fd_pr__nfet_g5v0d10v5[gds]
+
+let cgs8 = @m.xm8.msky130_fd_pr__pfet_g5v0d10v5[cgs]
+let cgs11 = @m.xm11.msky130_fd_pr__nfet_g5v0d10v5[cgs]
+
+print gds27
+print a29
+let ro1_p = gds27 / a29
+print ro1_p
+print gds25
+print gds33
+print a31
+let ro1_n = (gds25 + gds33) / a31
+print ro1_n
+let ro1 = ro1_n + ro1_p
+print ro1
+
+print gds10
+print gds8
+print a9
+let ro2 = gds10 / a9 + gds8
 write ldo.raw
 set appendwrite
+
+print ro1
+print ro2
+print a11
+print cgs8
+print cgs11
 * quit
 * === analysis ===
-ac dec 10 10 10MEG
+ac dec 10 10 1e9
 write lod.raw
 set units=degrees
 plot db(out)
 plot ph(out)
-tran 10n 300u
-write bias_generator.raw
-plot v(out)
 .endc
 "}
 C {sky130_fd_pr/corner.sym} 2830 -1090 0 0 {name=CORNER only_toplevel=false corner=tt}
@@ -522,7 +577,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 3020 -470 0 1 {name=M26
 W=1
-L=1
+L=0.5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -536,7 +591,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 3180 -470 0 0 {name=M27
 W=1
-L=1
+L=0.5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -577,8 +632,8 @@ model=pfet_g5v0d10v5
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 3020 -190 0 1 {name=M30
-W=4
-L=2
+W=1
+L=0.5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -591,8 +646,8 @@ model=nfet_g5v0d10v5
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 3180 -190 0 0 {name=M31
-W=4
-L=2
+W=1
+L=0.5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -635,7 +690,6 @@ spiceprefix=X
 C {devices/lab_pin.sym} 3100 -90 3 0 {name=p15 sig_type=std_logic lab=vbn}
 C {devices/lab_pin.sym} 3100 -370 1 1 {name=p16 sig_type=std_logic lab=vcp}
 C {devices/lab_pin.sym} 3100 -190 1 1 {name=p17 sig_type=std_logic lab=vcn}
-C {devices/lab_pin.sym} 2840 -190 0 1 {name=p19 sig_type=std_logic lab=vx}
 C {devices/ngspice_probe.sym} 2640 -240 0 0 {name=r1}
 C {devices/ammeter.sym} 3000 -270 0 0 {name=Vmeas9 savecurrent=true}
 C {devices/ngspice_probe.sym} 3000 -320 0 1 {name=r13}
@@ -735,7 +789,7 @@ C {devices/isource.sym} 1560 -150 0 0 {name=I2 value=200n}
 C {devices/isource.sym} 1750 -450 0 0 {name=I3 value=20n}
 C {devices/isource.sym} 1970 -450 0 0 {name=I4 value=200n}
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 3540 -370 0 0 {name=M8
-W=4
+W=20
 L=2
 nf=1
 mult=1
@@ -802,18 +856,16 @@ value=2MEG
 footprint=1206
 device=resistor
 m=1}
-C {devices/lab_pin.sym} 3710 -140 0 0 {name=p4 sig_type=std_logic lab=vx}
+C {devices/lab_pin.sym} 3710 -140 0 0 {name=p4 sig_type=std_logic lab=v_p}
 C {devices/opin.sym} 3860 -240 0 0 {name=p6 lab=out}
-C {devices/ipin.sym} 2440 -190 0 0 {name=p7 lab=vref}
 C {devices/iopin.sym} 810 -580 0 1 {name=p9 lab=vdd}
 C {devices/iopin.sym} 780 -20 0 1 {name=p10 lab=vss}
-C {devices/ngspice_get_value.sym} 3300 -460 0 0 {name=r2 node=@m.xm27.msky130_fd_pr__pfet_g5v0d10v5[gds]
-descr="gds="
-}
-C {devices/ipin.sym} 2440 -80 0 0 {name=p8 lab=vin}
-C {devices/lab_pin.sym} 3660 -290 1 1 {name=p12 sig_type=std_logic lab=vy}
+C {devices/lab_pin.sym} 2440 -190 0 0 {name=p18 sig_type=std_logic lab=v_m}
+C {devices/lab_pin.sym} 2840 -190 0 1 {name=p7 sig_type=std_logic lab=v_p}
+C {devices/ipin.sym} 2270 -190 0 0 {name=p8 lab=v_m}
+C {devices/ipin.sym} 2270 -110 0 0 {name=p20 lab=v_p}
 C {devices/capa.sym} 3510 -260 1 0 {name=C1
 m=1
-value=100f
+value=100e-15
 footprint=1206
 device="ceramic capacitor"}
