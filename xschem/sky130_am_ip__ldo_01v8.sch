@@ -10,7 +10,7 @@ T {2-stage error amplifier} 1260 -680 0 0 0.5 0.5 {}
 T {Pass transistor} 2500 -680 0 0 0.5 0.5 {}
 T {Low power 1.8 V LDO} 160 -1920 0 0 0.8 0.8 {}
 T {1.2 V Voltage reference} 120 -670 0 0 0.5 0.5 {}
-T {Voltage shifter} 160 -1630 0 0 0.5 0.5 {}
+T {Level shifter} 160 -1630 0 0 0.5 0.5 {}
 N 1510 -1070 1610 -1070 {
 lab=vbn}
 N 1470 -1040 1470 -1000 {
@@ -404,7 +404,7 @@ lab=vavss}
 N 2760 -110 2780 -110 {
 lab=vavss}
 N 2490 -180 2490 -140 {
-lab=v_ctrl}
+lab=#net26}
 N 2490 -80 2490 -40 {
 lab=vavss}
 N 2430 -210 2450 -210 {
@@ -429,12 +429,6 @@ N 2410 -320 2490 -320 {
 lab=v_ea}
 N 2410 -600 2740 -600 {
 lab=vavdd}
-N 2490 -160 2610 -160 {
-lab=v_ctrl}
-N 2610 -310 2610 -160 {
-lab=v_ctrl}
-N 2610 -310 2700 -310 {
-lab=v_ctrl}
 N 2510 -600 2510 -210 {
 lab=vavdd}
 N 220 -1560 380 -1560 {
@@ -524,11 +518,11 @@ lab=ibias}
 N 1470 -1460 1470 -1420 {
 lab=ibias}
 N 1470 -1360 1470 -1320 {
-lab=#net26}
+lab=#net27}
 N 2170 -1320 2170 -1280 {
 lab=vcp}
 N 2170 -1220 2170 -1200 {
-lab=#net27}
+lab=#net28}
 N 300 -260 300 -220 {
 lab=v_m}
 N 230 -290 260 -290 {
@@ -544,13 +538,19 @@ lab=v_m}
 N 300 -290 320 -290 {
 lab=vavdd}
 N 300 -350 300 -320 {
-lab=#net28}
+lab=#net29}
 N 300 -600 300 -410 {
 lab=vavdd}
 N 320 -600 320 -290 {
 lab=vavdd}
 N 300 -160 300 -40 {
 lab=vavss}
+N 2490 -160 2600 -160 {
+lab=#net26}
+N 2600 -310 2600 -160 {
+lab=#net26}
+N 2600 -310 2700 -310 {
+lab=#net26}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 1490 -1070 0 1 {name=M1
 W=1
 L=20
@@ -1097,7 +1097,6 @@ spiceprefix=X
 C {devices/lab_pin.sym} 2530 -1350 3 0 {name=p29 sig_type=std_logic lab=vcp}
 C {devices/lab_pin.sym} 740 -600 0 0 {name=p30 sig_type=std_logic lab=vavdd}
 C {devices/lab_pin.sym} 740 -40 0 0 {name=p31 sig_type=std_logic lab=vavss}
-C {devices/lab_pin.sym} 2670 -310 3 0 {name=p8 sig_type=std_logic lab=v_ctrl}
 C {devices/lab_pin.sym} 1940 -320 0 1 {name=p20 sig_type=std_logic lab=v_ea}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 280 -190 0 0 {name=M37
 W=2.48
@@ -1113,7 +1112,6 @@ sa=0 sb=0 sd=0
 model=nfet_g5v0d10v5
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 370 -240 0 1 {name=p34 sig_type=std_logic lab=v_m}
 C {devices/lab_pin.sym} 220 -600 0 0 {name=p35 sig_type=std_logic lab=vavdd}
 C {devices/lab_pin.sym} 220 -40 0 0 {name=p36 sig_type=std_logic lab=vavss}
 C {sky130_fd_pr/res_high_po_0p35.sym} 2740 -210 0 1 {name=R1
@@ -1156,7 +1154,6 @@ model=nfet_g5v0d10v5
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 2410 -40 0 0 {name=p40 sig_type=std_logic lab=vavss}
-C {devices/lab_pin.sym} 2410 -320 0 0 {name=p38 sig_type=std_logic lab=v_ea}
 C {devices/lab_pin.sym} 2410 -160 0 0 {name=p41 sig_type=std_logic lab=v_ena_b}
 C {devices/lab_pin.sym} 2410 -600 0 0 {name=p33 sig_type=std_logic lab=vavdd}
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 290 -1470 0 0 {name=M41
@@ -1285,3 +1282,5 @@ model=pfet_g5v0d10v5
 spiceprefix=X
 }
 C {devices/ammeter.sym} 300 -380 0 0 {name=Vmeas4 savecurrent=true}
+C {devices/lab_pin.sym} 2410 -320 0 0 {name=p8 sig_type=std_logic lab=v_ea}
+C {devices/lab_pin.sym} 370 -240 0 1 {name=p34 sig_type=std_logic lab=v_m}
