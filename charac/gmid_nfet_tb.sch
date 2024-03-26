@@ -46,7 +46,7 @@ sa=0 sb=0 sd=0
 model=nfet_g5v0d10v5
 spiceprefix=X
 }
-C {devices/vsource.sym} 70 -170 0 0 {name=vd value=1.2 savecurrent=false}
+C {devices/vsource.sym} 70 -170 0 0 {name=vd value=2 savecurrent=false}
 C {devices/vsource.sym} 170 -170 0 0 {name=vg value=3.3 savecurrent=false}
 C {devices/gnd.sym} 70 -60 0 0 {name=l1 lab=GND}
 C {devices/code_shown.sym} 430 -1040 0 0 {name=NGSPICE only_toplevel=false value="* ngspice commands
@@ -55,56 +55,43 @@ C {devices/code_shown.sym} 430 -1040 0 0 {name=NGSPICE only_toplevel=false value
 .options savecurrents
 .dc vg 100m 3.3 10m
 .control
-  foreach vd_act 100m 400m 550m 800m 1100m
-    set plot_idn = ' '
-    set plot_gmid = ' '
-    set plot_gds = ' '
-    set plot_avo = ' '
-    set plot_ft = ' '
-    set plot_vdsat = ' '
-    set plot_title = 'NFET normalized characteristic for L = 0.5u 1u 2u 5u 10u 20u'
-    set idn_file = charac_nfet_idn@vds\{$vd_act\}.ps
-    set gmid_file = charac_nfet_gmid@vds\{$vd_act\}.ps
-    set gds_file = charac_nfet_gds@vds\{$vd_act\}.ps
-    set avo_file = charac_nfet_avo@vds\{$vd_act\}.ps
-    set ft_file = charac_nfet_ft@vds\{$vd_act\}.ps
-    set vdsat_file = charac_nfet_vdsat@vds\{$vd_act\}.ps
-    foreach l_act 0.5 1 2 5 10 20
-        alterparam L = $l_act
-        reset
-        save all
-        save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gm]
-        save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gds]
-        save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[cds]
-        save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[id]
-        save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[w]
-        save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[l]
-        save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
-        alter vd $vd_act
-        echo l = $l_act
-        echo vds = $vd_act
-        run
-        remzerovec
-        let idn = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[id] / @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[w] * 1e-6
-        let gmid = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gm] / @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[id]
-        let gds = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gds]
-        let avo = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gm] / @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gds]
-        let vdsat = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
-        let ft =  @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gm] / (2 * PI * @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[cds])
-        set plot_idn = ( $plot_idn \{$curplot\}.idn )
-        set plot_gmid = ( $plot_gmid \{$curplot\}.gmid vs \{$curplot\}.idn )
-        set plot_gds = ( $plot_gds \{$curplot\}.gds vs \{$curplot\}.idn )
-        set plot_avo = ( $plot_avo \{$curplot\}.avo vs \{$curplot\}.idn )
-        set plot_ft = ( $plot_ft \{$curplot\}.ft vs \{$curplot\}.idn )
-        set plot_vdsat = ( $plot_vdsat \{$curplot\}.vdsat vs \{$curplot\}.idn )
-      end
-      hardcopy $idn_file $plot_idn ylog ylimit 1e-9 1e-3 xlabel 'Vgs' ylabel 'Id / W*' title $plot_title
-      hardcopy $gmid_file $plot_gmid xlog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'gm / Id' title $plot_title
-      hardcopy $gds_file $plot_gds loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'gds' title $plot_title
-      hardcopy $avo_file $plot_avo loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'Avo' title $plot_title
-      hardcopy $ft_file $plot_ft loglog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'ft' title $plot_title
-      hardcopy $vdsat_file $plot_vdsat xlog xlimit 1e-9 1e-3 xlabel 'Id / W*' ylabel 'Vdsat' title $plot_title
+* gm / id characterization
+  set plot_idn = ' '
+  set plot_gmid = ' '
+  set plot_gds = ' '
+  set plot_avo = ' '
+  set plot_title = 'nfet normalized characteristics'
+  set idn_file = charac_nfet_idn.ps
+  set gmid_file = charac_nfet_gmid.ps
+  set vdsat_file = charac_nfet_vdsat.ps
+  set gds_file = charac_nfet_gds.ps
+  set avo_file = charac_nfet_avo.ps
+  foreach l_act 0.5 1 2 4 8 12 16 20
+    alterparam L = $l_act
+    reset
+    save all
+    save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gm]
+    save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gds]
+    save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[id]
+    save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[w]
+    save @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[l]
+    echo l = $l_act
+    run
+    remzerovec
+    let idn = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[id] / ( @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[w] / @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[l] )
+    let gmid = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gm] / @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[id]
+    let gds = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gds]
+    let avo = @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gm] / @m.xm1.msky130_fd_pr__nfet_g5v0d10v5[gds]
+    set plot_idn = ( $plot_idn \{$curplot\}.idn )
+    set plot_gmid = ( $plot_gmid \{$curplot\}.gmid vs \{$curplot\}.idn )
+    set plot_gds = ( $plot_gds \{$curplot\}.gds vs \{$curplot\}.idn )
+    set plot_avo = ( $plot_avo \{$curplot\}.avo vs \{$curplot\}.idn )
   end
+  set nolegend
+  hardcopy $idn_file $plot_idn ylog ylimit 1e-12 1e-3 xlabel 'vgs' ylabel 'id*' title $plot_title
+  hardcopy $gmid_file $plot_gmid xlog xlimit 1e-12 1e-3 xlabel 'id*' ylabel 'gm / Id' title $plot_title
+  hardcopy $gds_file $plot_gds loglog xlimit 1e-12 1e-3 xlabel 'id*' ylabel 'gds' title $plot_title
+  hardcopy $avo_file $plot_avo loglog xlimit 1e-12 1e-3 xlabel 'id*' ylabel 'avo' title $plot_title
   quit
 .endc
 "}
