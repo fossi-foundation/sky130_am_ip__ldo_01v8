@@ -44,27 +44,21 @@ lab=#net4}
 N 120 -400 120 -360 {
 lab=vavdd}
 N 760 -80 760 -20 {
-lab=#net5}
+lab=GND}
 N 760 -220 760 -140 {
 lab=vout}
-N 440 -20 760 -20 {}
+N 440 -20 760 -20 {
+lab=GND}
 C {devices/code.sym} 1185 -140 0 0 {name=TRAN_SIM only_toplevel=false value=".option savecurrents
 .control
 save all
-save x1.v_p
-save x1.v_m
 op
-write sky130_am_fd_pr__ldo_01v8.raw
+write sky130_am_ip__ldo_01v8_tb.raw
 set appendwrite
-tran 100n 50u
-write sky130_am_fd_pr__ldo_01v8.raw
-* plot vout
-* plot x1.v_p x1.v_m
-* plot x1.v_x x1.v_ea
-plot i(v.x1.vmeas) i(v.x1.vmeas6)
+quit
 .endc
 "}
-C {sky130_fd_pr/corner.sym} 1070 -140 0 0 {name=CORNER only_toplevel=false corner=tt}
+C {sky130_fd_pr/corner.sym} 1070 -140 0 0 {name=CORNER only_toplevel=false corner=ff}
 C {devices/gnd.sym} 440 -20 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} 120 -90 0 0 {name=vavdd value="pwl(0 0 1u 0 2u 3.3 100u 3.3) dc 3.3" savecurrent=false
 }
