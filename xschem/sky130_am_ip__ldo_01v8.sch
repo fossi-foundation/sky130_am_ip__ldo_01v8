@@ -13,7 +13,7 @@ lab=avss}
 N 1950 -1140 1950 -1100 {
 lab=v_m}
 N 1950 -1240 1950 -1200 {
-lab=out}
+lab=vout}
 N 1950 -1270 1990 -1270 {
 lab=avss}
 N 1990 -1270 1990 -1000 {
@@ -23,7 +23,7 @@ lab=avss}
 N 1950 -1560 1950 -1300 {
 lab=avdd}
 N 1950 -1220 2050 -1220 {
-lab=out}
+lab=vout}
 N 1120 -1560 1270 -1560 {
 lab=avdd}
 N 1120 -1000 1270 -1000 {
@@ -93,7 +93,7 @@ model=nfet_g5v0d10v5
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 1950 -1120 0 1 {name=p4 sig_type=std_logic lab=v_m}
-C {devices/opin.sym} 2050 -1220 0 0 {name=p6 lab=out}
+C {devices/opin.sym} 2050 -1220 0 0 {name=p6 lab=vout}
 C {devices/lab_pin.sym} 1120 -1560 0 0 {name=p35 sig_type=std_logic lab=avdd}
 C {devices/lab_pin.sym} 1120 -1000 0 0 {name=p36 sig_type=std_logic lab=avss}
 C {sky130_fd_pr/res_high_po_0p35.sym} 1950 -1170 0 1 {name=R1
@@ -139,7 +139,7 @@ spiceprefix=X
 }
 C {devices/lab_pin.sym} 1200 -1260 0 1 {name=p14 sig_type=std_logic lab=vi}
 C {error_amplifier.sym} 1710 -1270 0 0 {name=x1}
-C {devices/ipin.sym} 1590 -1270 0 0 {name=p10 lab=ref}
+C {devices/ipin.sym} 1590 -1270 0 0 {name=p10 lab=vref}
 C {devices/ipin.sym} 1590 -1250 0 0 {name=p1 lab=ena}
 C {devices/iopin.sym} 1590 -1200 0 1 {name=p2 lab=avdd}
 C {devices/iopin.sym} 1590 -1180 0 1 {name=p3 lab=avss}
