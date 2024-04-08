@@ -19,8 +19,6 @@ N 590 -330 610 -330 {
 lab=GND}
 N 590 -370 610 -370 {
 lab=GND}
-N 610 -370 610 -60 {
-lab=GND}
 N 50 -410 50 -160 {
 lab=#net1}
 N 50 -410 290 -410 {
@@ -51,23 +49,24 @@ N 1130 -120 1130 -60 {
 lab=GND}
 N 1130 -260 1130 -180 {
 lab=ena}
+N 610 -370 610 -60 {
+lab=GND}
 C {devices/code.sym} 1675 -190 0 0 {name=TRAN_SIM only_toplevel=false value=".option savecurrents
 .control
 save all
+
+optran 0 0 0 100n 30u 0
 
 op
 write sky130_am_ip__ldo_01v8_tb.raw
 set appendwrite
 
-ac dec 10 10 1e9
-set units=degrees
-plot db(vout)
-
-dc vavdd 0 3.3 10m
-plot vout
-
-tran 100n 100u
-plot vout ena avdd x1.ref_int
+* ac dec 10 10 1e9
+* set units=degrees
+* plot db(vout)
+* 
+* dc vavdd 0 3.3 100m
+* plot vout
 .endc
 "}
 C {sky130_fd_pr/corner.sym} 1560 -190 0 0 {name=CORNER only_toplevel=false corner=tt}
@@ -105,11 +104,11 @@ value=360k
 footprint=1206
 device=resistor
 m=1}
-C {devices/vsource.sym} 890 -90 0 0 {name=vavdd value="pwl(0 0 10u 0 20u 3.3 100u 3.3) dc 3.3 ac 1" savecurrent=false
+C {devices/vsource.sym} 890 -90 0 0 {name=vavdd value="3.3 ac 1" savecurrent=false
 }
 C {devices/gnd.sym} 430 -60 0 0 {name=l2 lab=GND}
 C {devices/ammeter.sym} 890 -190 0 0 {name=vsupply1 savecurrent=true}
-C {devices/vsource.sym} 1130 -150 0 0 {name=vena value="pwl(0 0 1u 0 1.1u 1.8 100u 1.8) dc 1.8" savecurrent=false
+C {devices/vsource.sym} 1130 -150 0 0 {name=vena value="1.8" savecurrent=false
 }
 C {devices/vsource.sym} 990 -150 0 0 {name=vdvdd value=1.8 savecurrent=false
 }
@@ -122,6 +121,6 @@ C {devices/lab_pin.sym} 650 -350 0 1 {name=p7 sig_type=std_logic lab=avdd}
 C {devices/lab_pin.sym} 1130 -260 0 1 {name=p8 sig_type=std_logic lab=ena}
 C {devices/lab_pin.sym} 750 -410 0 1 {name=p9 sig_type=std_logic lab=vout}
 C {devices/lab_pin.sym} 230 -390 0 0 {name=p10 sig_type=std_logic lab=sel}
-C {devices/vsource.sym} 1390 -90 0 0 {name=vsel value=1.8 savecurrent=false
+C {devices/vsource.sym} 1390 -90 0 0 {name=vsel value=0 savecurrent=false
 }
 C {devices/lab_pin.sym} 1390 -260 0 1 {name=p1 sig_type=std_logic lab=sel}
