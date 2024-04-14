@@ -5,7 +5,6 @@ K {}
 V {}
 S {}
 E {}
-T {Reference selection} 630 -740 0 0 0.5 0.5 {}
 N 710 -140 750 -140 {
 lab=vref_int}
 N 710 -260 710 -140 {
@@ -13,21 +12,21 @@ lab=vref_int}
 N 710 -260 830 -260 {
 lab=vref_int}
 N 890 -260 930 -260 {
-lab=vref}
+lab=#net1}
 N 930 -260 930 -140 {
-lab=vref}
+lab=#net1}
 N 810 -140 930 -140 {
-lab=vref}
+lab=#net1}
 N 860 -260 860 -220 {
 lab=avdd}
 N 780 -180 780 -140 {
 lab=avss}
 N 930 -200 990 -200 {
-lab=vref}
+lab=#net1}
 N 780 -100 780 -60 {
 lab=sel_b}
 N 860 -340 860 -300 {
-lab=sel_3v3}
+lab=sel}
 N 710 -420 750 -420 {
 lab=vref_ext}
 N 710 -540 710 -420 {
@@ -35,11 +34,11 @@ lab=vref_ext}
 N 710 -540 830 -540 {
 lab=vref_ext}
 N 890 -540 930 -540 {
-lab=vref}
+lab=#net1}
 N 930 -540 930 -420 {
-lab=vref}
+lab=#net1}
 N 810 -420 930 -420 {
-lab=vref}
+lab=#net1}
 N 860 -540 860 -500 {
 lab=avdd}
 N 780 -460 780 -420 {
@@ -47,17 +46,15 @@ lab=avss}
 N 650 -480 710 -480 {
 lab=vref_ext}
 N 930 -480 990 -480 {
-lab=vref}
+lab=#net1}
 N 780 -380 780 -340 {
-lab=sel_3v3}
+lab=sel}
 N 860 -620 860 -580 {
 lab=sel_b}
 N 990 -480 990 -200 {
-lab=vref}
-N 990 -340 1050 -340 {
-lab=vref}
+lab=#net1}
 N 650 -340 860 -340 {
-lab=sel_3v3}
+lab=sel}
 N 650 -620 860 -620 {
 lab=sel_b}
 N 650 -60 780 -60 {
@@ -92,8 +89,18 @@ N 150 -650 350 -650 {
 lab=avdd}
 N 150 -40 350 -40 {
 lab=avss}
+N 1140 -340 1140 -300 {
+lab=vref}
+N 1140 -240 1140 -180 {
+lab=avss}
+N 990 -340 1040 -340 {
+lab=#net1}
+N 1100 -340 1240 -340 {
+lab=vref}
+N 1070 -320 1070 -180 {
+lab=avss}
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 860 -280 3 1 {name=M37
-W=2.5
+W=1
 L=0.5
 nf=1
 mult=1
@@ -123,7 +130,7 @@ model=nfet_g5v0d10v5
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 860 -560 3 1 {name=M50
-W=2.5
+W=1
 L=0.5
 nf=1
 mult=1
@@ -157,7 +164,7 @@ C {devices/lab_pin.sym} 860 -220 3 0 {name=p40 sig_type=std_logic lab=avdd}
 C {devices/lab_pin.sym} 780 -460 1 0 {name=p57 sig_type=std_logic lab=avss}
 C {devices/lab_pin.sym} 650 -480 0 0 {name=p41 sig_type=std_logic lab=vref_ext}
 C {devices/lab_pin.sym} 650 -200 0 0 {name=p42 sig_type=std_logic lab=vref_int}
-C {devices/lab_pin.sym} 1050 -340 0 1 {name=p46 sig_type=std_logic lab=vref}
+C {devices/lab_pin.sym} 1240 -340 0 1 {name=p46 sig_type=std_logic lab=vref}
 C {devices/iopin.sym} 1390 -560 0 1 {name=p59 lab=avdd}
 C {devices/iopin.sym} 1390 -520 0 1 {name=p61 lab=avss}
 C {devices/ipin.sym} 1390 -600 0 0 {name=p62 lab=sel}
@@ -196,3 +203,11 @@ spiceprefix=X
 }
 C {devices/lab_pin.sym} 150 -360 2 1 {name=p3 sig_type=std_logic lab=sel}
 C {devices/lab_pin.sym} 350 -360 3 0 {name=p4 sig_type=std_logic lab=sel_b}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 1140 -270 0 0 {name=C1 model=cap_mim_m3_1 W=8 L=8 MF=1 spiceprefix=X}
+C {devices/lab_pin.sym} 1140 -180 0 0 {name=p5 sig_type=std_logic lab=avss}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} 1070 -340 3 0 {name=R1
+L=200
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {devices/lab_pin.sym} 1070 -180 0 0 {name=p6 sig_type=std_logic lab=avss}

@@ -5,14 +5,15 @@ K {}
 V {}
 S {}
 E {}
-T {Bias generator} 170 -780 0 0 0.5 0.5 {}
-T {2-stage error amplifier} 2410 -780 0 0 0.5 0.5 {}
+T {Bias generator} 160 -780 0 0 0.5 0.5 {}
+T {Error amplifier} 1880 -780 0 0 0.5 0.5 {}
 T {Current reference} 720 -50 0 0 0.4 0.4 {}
 T {Wide swing voltage reference} 1040 -50 0 0 0.4 0.4 {}
 T {Start-up circuit} 350 -50 0 0 0.4 0.4 {}
-T {Enable circuitry} 1090 -1640 0 0 0.5 0.5 {}
+T {Enable circuitry} 460 -1640 0 0 0.5 0.5 {}
 T {1.2 V voltage reference} 1440 -50 0 0 0.4 0.4 {}
 T {Pinout} 2490 -1640 0 0 0.5 0.5 {}
+T {Pass transistor (N)} 3300 -780 0 0 0.5 0.5 {}
 N 770 -250 870 -250 {
 lab=vbn}
 N 910 -220 910 -80 {

@@ -54,6 +54,9 @@ set appendwrite
 ac dec 10 10 1e9
 set units=degrees
 plot db(vout)
+
+tran 100n 10u
+plot x1.ref
 * 
 * dc vavdd 0 3.3 100m
 * plot vout
@@ -107,6 +110,6 @@ C {devices/lab_pin.sym} 650 -390 0 1 {name=p7 sig_type=std_logic lab=avdd}
 C {devices/lab_pin.sym} 1130 -260 0 1 {name=p8 sig_type=std_logic lab=ena}
 C {devices/lab_pin.sym} 750 -410 0 1 {name=p9 sig_type=std_logic lab=vout}
 C {devices/lab_pin.sym} 230 -390 0 0 {name=p10 sig_type=std_logic lab=sel}
-C {devices/vsource.sym} 1390 -90 0 0 {name=vsel value=3.3 savecurrent=false
+C {devices/vsource.sym} 1390 -90 0 0 {name=vsel value="pulse(0 3.3 1u 10n 10n 2u 5u 10) dc 3.3" savecurrent=false
 }
 C {devices/lab_pin.sym} 1390 -260 0 1 {name=p1 sig_type=std_logic lab=sel}
