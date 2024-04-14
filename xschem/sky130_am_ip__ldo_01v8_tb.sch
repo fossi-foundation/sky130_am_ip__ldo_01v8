@@ -5,8 +5,6 @@ K {}
 V {}
 S {}
 E {}
-N 590 -390 650 -390 {
-lab=dvdd}
 N 230 -370 290 -370 {
 lab=ena}
 N 590 -410 750 -410 {
@@ -14,8 +12,6 @@ lab=vout}
 N 750 -410 750 -180 {
 lab=vout}
 N 750 -120 750 -60 {
-lab=GND}
-N 590 -330 610 -330 {
 lab=GND}
 N 590 -370 610 -370 {
 lab=GND}
@@ -33,17 +29,13 @@ N 890 -160 890 -120 {
 lab=#net2}
 N 890 -260 890 -220 {
 lab=avdd}
-N 990 -260 990 -180 {
-lab=dvdd}
-N 590 -350 650 -350 {
+N 590 -390 650 -390 {
 lab=avdd}
 N 230 -390 290 -390 {
 lab=sel}
 N 1390 -260 1390 -120 {
 lab=sel}
 N 1130 -60 1390 -60 {
-lab=GND}
-N 990 -120 990 -60 {
 lab=GND}
 N 1130 -120 1130 -60 {
 lab=GND}
@@ -55,15 +47,13 @@ C {devices/code.sym} 1675 -190 0 0 {name=TRAN_SIM only_toplevel=false value=".op
 .control
 save all
 
-optran 0 0 0 100n 30u 0
-
 op
 write sky130_am_ip__ldo_01v8_tb.raw
 set appendwrite
 
-* ac dec 10 10 1e9
-* set units=degrees
-* plot db(vout)
+ac dec 10 10 1e9
+set units=degrees
+plot db(vout)
 * 
 * dc vavdd 0 3.3 100m
 * plot vout
@@ -98,7 +88,7 @@ plot vout
 *plot @m.x1.xm39.msky130_fd_pr__nfet_g5v0d10v5[id]
 .endc
 "}
-C {sky130_am_ip__ldo_01v8.sym} 440 -370 0 0 {name=x1}
+C {sky130_am_ip__ldo_01v8.sym} 440 -390 0 0 {name=x1}
 C {devices/res.sym} 750 -150 0 0 {name=R1
 value=360k
 footprint=1206
@@ -108,19 +98,15 @@ C {devices/vsource.sym} 890 -90 0 0 {name=vavdd value="3.3 ac 1" savecurrent=fal
 }
 C {devices/gnd.sym} 430 -60 0 0 {name=l2 lab=GND}
 C {devices/ammeter.sym} 890 -190 0 0 {name=vsupply1 savecurrent=true}
-C {devices/vsource.sym} 1130 -150 0 0 {name=vena value="1.8" savecurrent=false
+C {devices/vsource.sym} 1130 -150 0 0 {name=vena value=3.3 savecurrent=false
 }
-C {devices/vsource.sym} 990 -150 0 0 {name=vdvdd value=1.8 savecurrent=false
-}
-C {devices/lab_pin.sym} 650 -390 0 1 {name=p2 sig_type=std_logic lab=dvdd}
 C {devices/lab_pin.sym} 230 -370 0 0 {name=p5 sig_type=std_logic lab=ena}
 C {devices/vsource.sym} 50 -130 0 0 {name=vref value=1.2 savecurrent=false}
-C {devices/lab_pin.sym} 990 -260 0 1 {name=p4 sig_type=std_logic lab=dvdd}
 C {devices/lab_pin.sym} 890 -260 0 1 {name=p6 sig_type=std_logic lab=avdd}
-C {devices/lab_pin.sym} 650 -350 0 1 {name=p7 sig_type=std_logic lab=avdd}
+C {devices/lab_pin.sym} 650 -390 0 1 {name=p7 sig_type=std_logic lab=avdd}
 C {devices/lab_pin.sym} 1130 -260 0 1 {name=p8 sig_type=std_logic lab=ena}
 C {devices/lab_pin.sym} 750 -410 0 1 {name=p9 sig_type=std_logic lab=vout}
 C {devices/lab_pin.sym} 230 -390 0 0 {name=p10 sig_type=std_logic lab=sel}
-C {devices/vsource.sym} 1390 -90 0 0 {name=vsel value=0 savecurrent=false
+C {devices/vsource.sym} 1390 -90 0 0 {name=vsel value=3.3 savecurrent=false
 }
 C {devices/lab_pin.sym} 1390 -260 0 1 {name=p1 sig_type=std_logic lab=sel}
