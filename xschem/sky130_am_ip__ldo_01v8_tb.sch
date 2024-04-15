@@ -51,18 +51,19 @@ op
 write sky130_am_ip__ldo_01v8_tb.raw
 set appendwrite
 
+optran 0 0 0 10n 6u 0
 ac dec 10 10 1e9
 set units=degrees
 plot db(vout)
 
-tran 100n 10u
-plot x1.ref
-* 
-* dc vavdd 0 3.3 100m
-* plot vout
+tran 10n 20u
+plot vout
+
+dc vavdd 2.5 3.0 10m
+plot vout
 .endc
 "}
-C {sky130_fd_pr/corner.sym} 1560 -190 0 0 {name=CORNER only_toplevel=false corner=tt}
+C {sky130_fd_pr/corner.sym} 1560 -190 0 0 {name=CORNER only_toplevel=false corner=ss}
 C {devices/launcher.sym} 1630 -280 0 0 {name=h5
 descr="annotate" 
 tclcommand="xschem annotate_op"
@@ -97,11 +98,11 @@ value=360k
 footprint=1206
 device=resistor
 m=1}
-C {devices/vsource.sym} 890 -90 0 0 {name=vavdd value="3.3 ac 1" savecurrent=false
+C {devices/vsource.sym} 890 -90 0 0 {name=vavdd value="3.0 ac 1" savecurrent=false
 }
 C {devices/gnd.sym} 430 -60 0 0 {name=l2 lab=GND}
 C {devices/ammeter.sym} 890 -190 0 0 {name=vsupply1 savecurrent=true}
-C {devices/vsource.sym} 1130 -150 0 0 {name=vena value=3.3 savecurrent=false
+C {devices/vsource.sym} 1130 -150 0 0 {name=vena value=3.0 savecurrent=false
 }
 C {devices/lab_pin.sym} 230 -370 0 0 {name=p5 sig_type=std_logic lab=ena}
 C {devices/vsource.sym} 50 -130 0 0 {name=vref value=1.2 savecurrent=false}
@@ -110,6 +111,6 @@ C {devices/lab_pin.sym} 650 -390 0 1 {name=p7 sig_type=std_logic lab=avdd}
 C {devices/lab_pin.sym} 1130 -260 0 1 {name=p8 sig_type=std_logic lab=ena}
 C {devices/lab_pin.sym} 750 -410 0 1 {name=p9 sig_type=std_logic lab=vout}
 C {devices/lab_pin.sym} 230 -390 0 0 {name=p10 sig_type=std_logic lab=sel}
-C {devices/vsource.sym} 1390 -90 0 0 {name=vsel value="pulse(0 3.3 1u 10n 10n 2u 5u 10) dc 3.3" savecurrent=false
+C {devices/vsource.sym} 1390 -90 0 0 {name=vsel value="3.0" savecurrent=false
 }
 C {devices/lab_pin.sym} 1390 -260 0 1 {name=p1 sig_type=std_logic lab=sel}
