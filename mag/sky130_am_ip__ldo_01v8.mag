@@ -1,0 +1,238 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1713189972
+<< metal1 >>
+rect 0 0 200 200
+rect 0 -400 200 -200
+rect 0 -800 200 -600
+rect 0 -1200 200 -1000
+rect 0 -1600 200 -1400
+rect 0 -2000 200 -1800
+use sky130_fd_pr__res_xhigh_po_0p35_QZEXQH  sky130_fd_pr__res_xhigh_po_0p35_QZEXQH_0
+timestamp 1713186496
+transform 1 0 21864 0 1 10492
+box -1612 -1582 1612 1582
+use sky130_fd_pr__cap_mim_m3_1_47ZMAK  XC2
+timestamp 1713186496
+transform 1 0 12370 0 1 14316
+box -536 -390 536 390
+use sky130_fd_pr__nfet_g5v0d10v5_PXBJUB  XM1
+timestamp 1713186496
+transform 1 0 -17848 0 1 15396
+box -1228 -358 1228 358
+use sky130_fd_pr__pfet_g5v0d10v5_VHBZVD  XM2
+timestamp 1713186496
+transform 1 0 -22164 0 1 23277
+box -658 -397 658 397
+use sky130_fd_pr__nfet_g5v0d10v5_SUZJUB  XM3
+timestamp 1713186496
+transform 1 0 -21594 0 1 14657
+box -1228 -985 1228 985
+use sky130_fd_pr__pfet_g5v0d10v5_VHBZVD  XM4
+timestamp 1713186496
+transform 1 0 -18454 0 1 23277
+box -658 -397 658 397
+use sky130_fd_pr__pfet_g5v0d10v5_JUYYLK  XM5
+timestamp 1713186496
+transform 1 0 -21530 0 1 25875
+box -1258 -615 1258 615
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM6
+timestamp 1713186496
+transform 1 0 2054 0 1 16268
+box -278 -358 278 358
+use sky130_fd_pr__nfet_g5v0d10v5_Q43KUB  XM7
+timestamp 1713186496
+transform 1 0 2970 0 1 14499
+box -1228 -567 1228 567
+use sky130_fd_pr__pfet_g5v0d10v5_AJ8PSU  XM8
+timestamp 1713186496
+transform 1 0 16124 0 1 22803
+box -1258 -2359 1258 2359
+use sky130_fd_pr__pfet_g5v0d10v5_KLAZY6  XM9
+timestamp 1713186496
+transform 1 0 15418 0 1 19377
+box -308 -397 308 397
+use sky130_fd_pr__nfet_g5v0d10v5_PXXNGC  XM10
+timestamp 1713186496
+transform 1 0 -29496 0 1 14896
+box -328 -1258 328 1258
+use sky130_fd_pr__pfet_g5v0d10v5_B2XNN5  XM11
+timestamp 1713186496
+transform 1 0 -27846 0 1 20405
+box -2258 -397 2258 397
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM12
+timestamp 1713186496
+transform 1 0 3200 0 1 15990
+box -278 -358 278 358
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM13
+timestamp 1713186496
+transform 1 0 -26472 0 1 15116
+box -278 -358 278 358
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM14
+timestamp 1713186496
+transform 1 0 -25072 0 1 15150
+box -278 -358 278 358
+use sky130_fd_pr__pfet_g5v0d10v5_B2XNN5  XM15
+timestamp 1713186496
+transform 1 0 -27952 0 1 24851
+box -2258 -397 2258 397
+use sky130_fd_pr__pfet_g5v0d10v5_KLAZY6  XM16
+timestamp 1713186496
+transform 1 0 -19594 0 1 36125
+box -308 -397 308 397
+use sky130_fd_pr__pfet_g5v0d10v5_PC2PN5  XM17
+timestamp 1713186496
+transform 1 0 -13792 0 1 25657
+box -1258 -397 1258 397
+use sky130_fd_pr__pfet_g5v0d10v5_KLAZY6  XM18
+timestamp 1713186496
+transform 1 0 -17212 0 1 36159
+box -308 -397 308 397
+use sky130_fd_pr__nfet_g5v0d10v5_K6BQ2N  XM19
+timestamp 1713186496
+transform 1 0 -14212 0 1 14165
+box -278 -1403 278 1403
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM20
+timestamp 1713186496
+transform 1 0 -14142 0 1 11160
+box -278 -358 278 358
+use sky130_fd_pr__pfet_g5v0d10v5_JUYWAN  XM21
+timestamp 1713186496
+transform 1 0 -10398 0 1 26529
+box -1258 -1269 1258 1269
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM22
+timestamp 1713186496
+transform 1 0 -19860 0 1 3738
+box -278 -358 278 358
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM23
+timestamp 1713186496
+transform 1 0 -13384 0 1 3738
+box -278 -358 278 358
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM24
+timestamp 1713186496
+transform 1 0 11262 0 1 3702
+box -278 -358 278 358
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM25
+timestamp 1713186496
+transform 1 0 18824 0 1 3668
+box -278 -358 278 358
+use sky130_fd_pr__pfet_g5v0d10v5_PC29BA  XM26
+timestamp 1713186496
+transform 1 0 5870 0 1 21219
+box -1258 -1487 1258 1487
+use sky130_fd_pr__pfet_g5v0d10v5_PC29BA  XM27
+timestamp 1713186496
+transform 1 0 9462 0 1 21133
+box -1258 -1487 1258 1487
+use sky130_fd_pr__pfet_g5v0d10v5_FGUWVM  XM28
+timestamp 1713186496
+transform 1 0 6470 0 1 18457
+box -358 -397 358 397
+use sky130_fd_pr__pfet_g5v0d10v5_FGUWVM  XM29
+timestamp 1713186496
+transform 1 0 8900 0 1 18665
+box -358 -397 358 397
+use sky130_fd_pr__nfet_g5v0d10v5_69TNYL  XM30
+timestamp 1713186496
+transform 1 0 6684 0 1 16476
+box -328 -358 328 358
+use sky130_fd_pr__nfet_g5v0d10v5_69TNYL  XM31
+timestamp 1713186496
+transform 1 0 9216 0 1 16372
+box -328 -358 328 358
+use sky130_fd_pr__nfet_g5v0d10v5_69F5UN  XM32
+timestamp 1713186496
+transform 1 0 6646 0 1 14672
+box -428 -358 428 358
+use sky130_fd_pr__nfet_g5v0d10v5_69F5UN  XM33
+timestamp 1713186496
+transform 1 0 9038 0 1 14602
+box -428 -358 428 358
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM34
+timestamp 1713186496
+transform 1 0 -25146 0 1 3738
+box -278 -358 278 358
+use sky130_fd_pr__pfet_g5v0d10v5_JUYYLK  XM35
+timestamp 1713186496
+transform 1 0 -17924 0 1 25875
+box -1258 -615 1258 615
+use sky130_fd_pr__nfet_g5v0d10v5_69F5UN  XM36
+timestamp 1713186496
+transform 1 0 -12452 0 1 15080
+box -428 -358 428 358
+use sky130_fd_pr__pfet_g5v0d10v5_7EZSY6  XM37
+timestamp 1713186496
+transform 1 0 -38606 0 1 20533
+box -308 -647 308 647
+use sky130_fd_pr__nfet_g5v0d10v5_Q43KUB  XM38
+timestamp 1713186496
+transform 1 0 15746 0 1 13655
+box -1228 -567 1228 567
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM39
+timestamp 1713186496
+transform 1 0 17026 0 1 15016
+box -278 -358 278 358
+use sky130_fd_pr__pfet_g5v0d10v5_LJ8MW9  XM40
+timestamp 1713186496
+transform 1 0 -6966 0 1 28603
+box -1258 -3449 1258 3449
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM41
+timestamp 1713186496
+transform 1 0 -38636 0 1 15122
+box -278 -358 278 358
+use sky130_fd_pr__nfet_g5v0d10v5_J2FQJR  XM42
+array 0 19 556 0 0 2516
+timestamp 1713187325
+transform 1 0 20374 0 1 14208
+box -278 -1258 278 1258
+use sky130_fd_pr__pfet_g5v0d10v5_KLAZY6  XM43
+timestamp 1713186496
+transform 1 0 -2470 0 1 20213
+box -308 -397 308 397
+use sky130_fd_pr__pfet_g5v0d10v5_7EZSY6  XM44
+timestamp 1713186496
+transform 1 0 -41694 0 1 20603
+box -308 -647 308 647
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM45
+timestamp 1713186496
+transform 1 0 -41724 0 1 15122
+box -278 -358 278 358
+use sky130_fd_pr__nfet_g5v0d10v5_VJFUAT  XM47
+timestamp 1713186496
+transform 1 0 -6032 0 1 9625
+box -2228 -363 2228 363
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM49
+timestamp 1713186496
+transform 1 0 -1378 0 1 14700
+box -278 -358 278 358
+use sky130_fd_pr__pfet_g5v0d10v5_KLAZY6  XM50
+timestamp 1713186496
+transform 1 0 -1208 0 1 20213
+box -308 -397 308 397
+use sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N  XM51
+timestamp 1713186496
+transform 1 0 -2570 0 1 14700
+box -278 -358 278 358
+use sky130_fd_pr__res_xhigh_po_0p35_Z7JM9H  XR2
+timestamp 1713187042
+transform -1 0 28118 0 1 10422
+box -3106 -1582 3106 1582
+use sky130_fd_pr__res_xhigh_po_0p35_QZEXQH  XR3
+timestamp 1713186496
+transform 1 0 -21176 0 1 10878
+box -1612 -1582 1612 1582
+<< labels >>
+flabel metal1 0 0 200 200 0 FreeSans 256 0 0 0 vout
+port 0 nsew
+flabel metal1 0 -400 200 -200 0 FreeSans 256 0 0 0 vref_ext
+port 1 nsew
+flabel metal1 0 -800 200 -600 0 FreeSans 256 0 0 0 avdd
+port 2 nsew
+flabel metal1 0 -1200 200 -1000 0 FreeSans 256 0 0 0 sel
+port 3 nsew
+flabel metal1 0 -1600 200 -1400 0 FreeSans 256 0 0 0 avss
+port 4 nsew
+flabel metal1 0 -2000 200 -1800 0 FreeSans 256 0 0 0 ena
+port 5 nsew
+<< end >>
