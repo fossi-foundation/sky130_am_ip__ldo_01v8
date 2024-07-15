@@ -601,7 +601,7 @@ sa=0 sb=0 sd=0
 model=nfet_g5v0d10v5
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 1600 -370 0 0 {name=C1 model=cap_mim_m3_1 W=15 L=15 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 1600 -370 0 0 {name=C1 model=cap_mim_m3_1 W=15 L=15 MF=3 spiceprefix=X}
 C {devices/lab_pin.sym} 580 -1120 0 0 {name=p21 sig_type=std_logic lab=AVSS}
 C {devices/lab_pin.sym} 580 -1720 0 0 {name=p59 sig_type=std_logic lab=AVDD}
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1010 -1630 0 0 {name=M62

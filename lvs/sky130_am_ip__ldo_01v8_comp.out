@@ -116,13 +116,13 @@ Device classes sky130_fd_sc_hvl__lsbuflv2hv_1 and sky130_fd_sc_hvl__lsbuflv2hv_1
 Flattening unmatched subcell sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N in circuit sky130_am_ip__ldo_01v8 (0)(8 instances)
 Flattening unmatched subcell sky130_fd_pr__pfet_g5v0d10v5_BWAZV5 in circuit sky130_am_ip__ldo_01v8 (0)(6 instances)
 Flattening unmatched subcell sky130_fd_pr__nfet_g5v0d10v5_A2FZRM in circuit sky130_am_ip__ldo_01v8 (0)(7 instances)
-Flattening unmatched subcell sky130_fd_pr__pfet_g5v0d10v5_PC2PN5 in circuit sky130_am_ip__ldo_01v8 (0)(1 instance)
 Flattening unmatched subcell sky130_fd_pr__pfet_g5v0d10v5_KLAZY6 in circuit sky130_am_ip__ldo_01v8 (0)(8 instances)
+Flattening unmatched subcell sky130_fd_pr__pfet_g5v0d10v5_PC2PN5 in circuit sky130_am_ip__ldo_01v8 (0)(1 instance)
 Flattening unmatched subcell sky130_fd_pr__nfet_g5v0d10v5_69K6TN in circuit sky130_am_ip__ldo_01v8 (0)(2 instances)
 Flattening unmatched subcell sky130_fd_pr__res_xhigh_po_0p35_QZEXQH in circuit sky130_am_ip__ldo_01v8 (0)(1 instance)
 Flattening unmatched subcell sky130_fd_pr__res_xhigh_po_0p35_Z7JM9H in circuit sky130_am_ip__ldo_01v8 (0)(1 instance)
 Flattening unmatched subcell sky130_fd_pr__res_xhigh_po_0p35_743D3R in circuit sky130_am_ip__ldo_01v8 (0)(1 instance)
-Flattening unmatched subcell sky130_fd_pr__cap_mim_m3_1_MRZGNS in circuit sky130_am_ip__ldo_01v8 (0)(1 instance)
+Flattening unmatched subcell sky130_fd_pr__cap_mim_m3_1_MRZGNS in circuit sky130_am_ip__ldo_01v8 (0)(3 instances)
 Flattening unmatched subcell sky130_fd_pr__cap_mim_m3_1_VCAG9S in circuit sky130_am_ip__ldo_01v8 (0)(1 instance)
 Flattening unmatched subcell sky130_fd_pr__nfet_g5v0d10v5_PXBJUB in circuit sky130_am_ip__ldo_01v8 (0)(3 instances)
 Flattening unmatched subcell sky130_fd_pr__pfet_g5v0d10v5_47NWVV in circuit sky130_am_ip__ldo_01v8 (0)(3 instances)
@@ -131,7 +131,7 @@ Flattening unmatched subcell sky130_fd_pr__pfet_g5v0d10v5_7EJ6Y6 in circuit sky1
 Flattening unmatched subcell sky130_fd_pr__nfet_g5v0d10v5_WSEQJ8 in circuit sky130_am_ip__ldo_01v8 (0)(2 instances)
 Flattening unmatched subcell sky130_fd_pr__nfet_g5v0d10v5_L9TFKV in circuit sky130_am_ip__ldo_01v8 (0)(1 instance)
 
-Class sky130_am_ip__ldo_01v8 (0):  Merged 1030 parallel devices.
+Class sky130_am_ip__ldo_01v8 (0):  Merged 1032 parallel devices.
 Class sky130_am_ip__ldo_01v8 (0):  Merged 53 series devices.
 Subcircuit summary:
 Circuit 1: sky130_am_ip__ldo_01v8          |Circuit 2: sky130_am_ip__ldo_01v8          
@@ -140,7 +140,7 @@ sky130_fd_pr__nfet_g5v0d10v5 (1051->21)    |sky130_fd_pr__nfet_g5v0d10v5 (1051->
 sky130_fd_pr__pfet_g5v0d10v5 (20)          |sky130_fd_pr__pfet_g5v0d10v5 (20)          
 sky130_fd_sc_hvl__lsbuflv2hv_1 (2)         |sky130_fd_sc_hvl__lsbuflv2hv_1 (2)         
 sky130_fd_pr__res_xhigh_po_0p35 (56->3)    |sky130_fd_pr__res_xhigh_po_0p35 (3)        
-sky130_fd_pr__cap_mim_m3_1 (2)             |sky130_fd_pr__cap_mim_m3_1 (2)             
+sky130_fd_pr__cap_mim_m3_1 (4->2)          |sky130_fd_pr__cap_mim_m3_1 (4->2)          
 Number of devices: 48                      |Number of devices: 48                      
 Number of nets: 33                         |Number of nets: 33                         
 ---------------------------------------------------------------------------------------

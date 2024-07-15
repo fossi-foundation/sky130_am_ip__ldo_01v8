@@ -19,13 +19,13 @@ X3 a_900_n936# a_n900_n1024# a_n958_n936# a_n1102_n1158# sky130_fd_pr__nfet_g5v0
 X4 a_900_736# a_n900_648# a_n958_736# a_n1102_n1158# sky130_fd_pr__nfet_g5v0d10v5 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=9
 .ends
 
+.subckt sky130_fd_pr__pfet_g5v0d10v5_KLAZY6 a_n50_n197# a_50_n100# w_n308_n397# a_n108_n100#
+X0 a_50_n100# a_n50_n197# a_n108_n100# w_n308_n397# sky130_fd_pr__pfet_g5v0d10v5 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.5
+.ends
+
 .subckt sky130_fd_pr__pfet_g5v0d10v5_PC2PN5 w_n1258_n397# a_n1000_n197# a_1000_n100#
 + a_n1058_n100#
 X0 a_1000_n100# a_n1000_n197# a_n1058_n100# w_n1258_n397# sky130_fd_pr__pfet_g5v0d10v5 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=10
-.ends
-
-.subckt sky130_fd_pr__pfet_g5v0d10v5_KLAZY6 a_n50_n197# a_50_n100# w_n308_n397# a_n108_n100#
-X0 a_50_n100# a_n50_n197# a_n108_n100# w_n308_n397# sky130_fd_pr__pfet_g5v0d10v5 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.5
 .ends
 
 .subckt sky130_fd_sc_hvl__lsbuflv2hv_1 A LVPWR VGND VNB VPB VPWR X
@@ -440,14 +440,14 @@ XXM56 vbias_p vy AVDD AVDD sky130_fd_pr__pfet_g5v0d10v5_BWAZV5
 XXM78 AVSS AVSS nena ena_3v3 sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
 XXM67 vbias_n vbias_n vbias_n vbias_n AVSS AVSS vbias_n AVSS vbias_n vbias_n vbias_n
 + vbias_n AVSS AVSS AVSS vbias_n sky130_fd_pr__nfet_g5v0d10v5_A2FZRM
-XXM68 AVDD vbias_c vbias_c AVDD sky130_fd_pr__pfet_g5v0d10v5_PC2PN5
-XXM57 vbias_c verr AVDD vy sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
 XXM79 vbias_p vref_int AVDD AVDD sky130_fd_pr__pfet_g5v0d10v5_BWAZV5
+XXM57 vbias_c verr AVDD vy sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
 XXM46 vbias_p vx AVDD AVDD sky130_fd_pr__pfet_g5v0d10v5_BWAZV5
+XXM68 AVDD vbias_c vbias_c AVDD sky130_fd_pr__pfet_g5v0d10v5_PC2PN5
 Xx1 ENA DVDD DVSS DVSS AVDD AVDD ena_3v3 sky130_fd_sc_hvl__lsbuflv2hv_1
+XXM58 vbias_c m2_8539_n7649# AVDD vx sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
 XXM69 vbias_n vbias_n vbias_c vbias_n AVSS AVSS vbias_c AVSS vbias_c vbias_c vbias_c
 + vbias_n AVSS AVSS AVSS vbias_n sky130_fd_pr__nfet_g5v0d10v5_A2FZRM
-XXM58 vbias_c m2_8539_n7649# AVDD vx sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
 Xx2 SEL_EXT DVDD DVSS DVSS AVDD AVDD sel_ext_3v3 sky130_fd_sc_hvl__lsbuflv2hv_1
 XXM59 verr AVSS AVDD vpass sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
 XXM48 verr AVSS m2_8539_n7649# AVSS sky130_fd_pr__nfet_g5v0d10v5_69K6TN
@@ -470,15 +470,17 @@ XXR5 m1_5117_n1479# m1_5117_n2475# m1_7517_n4965# m1_5117_n4799# m1_7517_n981# m
 + m1_5117_n1811# m1_5117_n5131# m1_7517_n1313# m1_5117_n3803# m1_7517_n2309# m1_5117_n483#
 + m1_5117_n4135# m1_7517_n3969# m1_7517_n317# m1_5117_n3139# m1_7517_n2973# sky130_fd_pr__res_xhigh_po_0p35_Z7JM9H
 XXR6 AVSS m1_22164_n7435# AVSS m1_22164_n7435# m2_26640_n7437# sky130_fd_pr__res_xhigh_po_0p35_743D3R
-XXC1 verr AVSS sky130_fd_pr__cap_mim_m3_1_MRZGNS
+XXC1[0] verr AVSS sky130_fd_pr__cap_mim_m3_1_MRZGNS
+XXC1[1] verr AVSS sky130_fd_pr__cap_mim_m3_1_MRZGNS
+XXC1[2] verr AVSS sky130_fd_pr__cap_mim_m3_1_MRZGNS
 XXC3 AVSS vref sky130_fd_pr__cap_mim_m3_1_VCAG9S
 XXM90 nena vdd_start AVDD AVDD sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
 XXM80 vref_int AVSS m1_12626_n9400# m1_10488_n8825# sky130_fd_pr__nfet_g5v0d10v5_PXBJUB
-XXM81 vref_int AVSS vref_int m1_10488_n8825# sky130_fd_pr__nfet_g5v0d10v5_PXBJUB
 XXM70 AVSS vdd_start vbias_n vstart sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
+XXM81 vref_int AVSS vref_int m1_10488_n8825# sky130_fd_pr__nfet_g5v0d10v5_PXBJUB
+XXM71 m1_20910_n7332# vstart vstart AVDD sky130_fd_pr__pfet_g5v0d10v5_47NWVV
 XXM60 vbias_p vpass AVDD AVDD sky130_fd_pr__pfet_g5v0d10v5_BWAZV5
 XXM82 vref_int AVSS m1_12626_n9400# AVSS sky130_fd_pr__nfet_g5v0d10v5_PXBJUB
-XXM71 m1_20910_n7332# vstart vstart AVDD sky130_fd_pr__pfet_g5v0d10v5_47NWVV
 XXM61[0] vpass vpass AVDD AVDD VOUT vpass VOUT AVDD AVDD AVDD AVDD VOUT VOUT vpass
 + vpass VOUT VOUT AVDD vpass AVDD vpass vpass vpass VOUT vpass vpass vpass AVDD VOUT
 + VOUT VOUT vpass VOUT AVDD VOUT AVDD AVDD vpass vpass VOUT VOUT vpass VOUT vpass
@@ -619,27 +621,24 @@ XXM61[4] vpass vpass AVDD AVDD VOUT vpass VOUT AVDD AVDD AVDD AVDD VOUT VOUT vpa
 + AVDD vpass vpass AVDD VOUT VOUT vpass vpass AVDD VOUT vpass vpass VOUT vpass VOUT
 + AVDD vpass AVDD vpass AVDD AVDD vpass vpass VOUT AVDD vpass VOUT VOUT AVDD vpass
 + vpass vpass AVDD vpass VOUT VOUT vpass sky130_fd_pr__nfet_g5v0d10v5_YHRXVR
-XXM83 AVSS AVSS nsel_ext sel_ext_3v3 sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
 XXM72 m1_20184_n7334# m1_20910_n7332# m1_20910_n7332# AVDD sky130_fd_pr__pfet_g5v0d10v5_47NWVV
-XXM84 AVDD AVDD nsel_ext sel_ext_3v3 sky130_fd_pr__pfet_g5v0d10v5_7EJ6Y6
-XXM62 vbias_p AVDD AVDD m1_19028_n7338# sky130_fd_pr__pfet_g5v0d10v5_BWAZV5
+XXM83 AVSS AVSS nsel_ext sel_ext_3v3 sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
 XXM73 AVDD m1_20184_n7334# m1_20184_n7334# AVDD sky130_fd_pr__pfet_g5v0d10v5_47NWVV
+XXM62 vbias_p AVDD AVDD m1_19028_n7338# sky130_fd_pr__pfet_g5v0d10v5_BWAZV5
+XXM84 AVDD AVDD nsel_ext sel_ext_3v3 sky130_fd_pr__pfet_g5v0d10v5_7EJ6Y6
 Xsky130_fd_pr__pfet_g5v0d10v5_KLAZY6_0 ena_3v3 vbias_c AVDD AVDD sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
-XXM85 AVSS vbias_n AVSS nena sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
-XXM52 vy m2_6784_n8214# vm AVSS sky130_fd_pr__nfet_g5v0d10v5_WSEQJ8
 XXM63 vbias_c m1_19028_n7338# AVDD vbias_p sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
 XXM74 vbias_n vbias_n vstart vbias_n AVSS AVSS vstart AVSS vstart vstart vstart vbias_n
 + AVSS AVSS AVSS vbias_n sky130_fd_pr__nfet_g5v0d10v5_A2FZRM
+XXM85 AVSS vbias_n AVSS nena sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
+XXM52 vy m2_6784_n8214# vm AVSS sky130_fd_pr__nfet_g5v0d10v5_WSEQJ8
 XXM53 vx m2_6784_n8214# vref AVSS sky130_fd_pr__nfet_g5v0d10v5_WSEQJ8
 XXM75 AVSS vref vref_int nsel_ext sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
 XXM64 vbias_p AVDD AVDD m1_16878_n7330# sky130_fd_pr__pfet_g5v0d10v5_BWAZV5
+XXM65 vbias_c m1_16878_n7330# AVDD vbias_n sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
 XXM87 AVSS vpass AVSS nena sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
 XXM54 AVSS vbias_n AVSS m2_6784_n8214# sky130_fd_pr__nfet_g5v0d10v5_L9TFKV
 XXM76 AVDD AVDD nena ena_3v3 sky130_fd_pr__pfet_g5v0d10v5_7EJ6Y6
-XXM65 vbias_c m1_16878_n7330# AVDD vbias_n sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
-XXM55 m2_8539_n7649# AVSS m2_8539_n7649# AVSS sky130_fd_pr__nfet_g5v0d10v5_69K6TN
-XXM88 ena_3v3 vbias_p AVDD AVDD sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
-XXM77 AVSS VREF_EXT vref sel_ext_3v3 sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
 XXM66[0] vbias_n vbias_n vbias_p vbias_n m2_26640_n7437# m2_26640_n7437# vbias_p AVSS
 + vbias_p vbias_p vbias_p vbias_n m2_26640_n7437# m2_26640_n7437# m2_26640_n7437#
 + vbias_n sky130_fd_pr__nfet_g5v0d10v5_A2FZRM
@@ -652,5 +651,8 @@ XXM66[2] vbias_n vbias_n vbias_p vbias_n m2_26640_n7437# m2_26640_n7437# vbias_p
 XXM66[3] vbias_n vbias_n vbias_p vbias_n m2_26640_n7437# m2_26640_n7437# vbias_p AVSS
 + vbias_p vbias_p vbias_p vbias_n m2_26640_n7437# m2_26640_n7437# m2_26640_n7437#
 + vbias_n sky130_fd_pr__nfet_g5v0d10v5_A2FZRM
+XXM55 m2_8539_n7649# AVSS m2_8539_n7649# AVSS sky130_fd_pr__nfet_g5v0d10v5_69K6TN
+XXM88 ena_3v3 vbias_p AVDD AVDD sky130_fd_pr__pfet_g5v0d10v5_KLAZY6
+XXM77 AVSS VREF_EXT vref sel_ext_3v3 sky130_fd_pr__nfet_g5v0d10v5_UNEQ2N
 .ends
 
