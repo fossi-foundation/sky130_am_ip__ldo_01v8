@@ -5976,11 +5976,11 @@ use sky130_fd_pr__nfet_g5v0d10v5_69K6TN  XM48 paramcells
 timestamp 1717294357
 transform 1 0 9294 0 1 -8726
 box -938 -358 938 358
-use sky130_fd_pr__nfet_g5v0d10v5_WSEQJ8  XM52 paramcells
+use sky130_fd_pr__nfet_g5v0d10v5_WSEQJ0  XM52 paramcells
 timestamp 1717294357
 transform 1 0 7902 0 1 -8240
 box -288 -458 288 458
-use sky130_fd_pr__nfet_g5v0d10v5_WSEQJ8  XM53
+use sky130_fd_pr__nfet_g5v0d10v5_WSEQJ0  XM53
 timestamp 1717294357
 transform 1 0 7456 0 1 -8240
 box -288 -458 288 458
