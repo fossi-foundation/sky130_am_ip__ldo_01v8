@@ -25,14 +25,6 @@ N 270 -410 290 -410 {
 lab=GND}
 N 270 -410 270 -60 {
 lab=GND}
-N -180 -100 -180 -60 {
-lab=GND}
-N -180 -430 290 -430 {
-lab=#net2}
-N -180 -430 -180 -160 {
-lab=#net2}
-N -40 -390 -40 -160 {
-lab=#net3}
 N -40 -390 290 -390 {
 lab=#net3}
 N 60 -350 290 -350 {
@@ -43,6 +35,19 @@ N 60 -100 60 -60 {
 lab=GND}
 N -180 -60 170 -60 {
 lab=GND}
+N -40 -390 -40 -160 {
+lab=#net3}
+N 250 -450 290 -450 {
+lab=GND}
+N 250 -450 250 -60 {
+lab=GND}
+N -180 -220 -180 -60 {}
+N -260 -290 -260 -60 {}
+N -260 -60 -180 -60 {}
+N -180 -430 290 -430 {}
+N -180 -430 -180 -280 {}
+N -260 -470 -260 -350 {}
+N -260 -470 290 -470 {}
 C {devices/code.sym} 995 -170 0 0 {name=TRAN_SIM only_toplevel=false value=".option savecurrents
 .param AVDD = 3.0
 .control
@@ -87,7 +92,7 @@ value=360k
 footprint=1206
 device=resistor
 m=1}
-C {devices/vsource.sym} -180 -130 0 0 {name=vavdd value="dc \{AVDD\} pulse 0 \{AVDD\} 1u 1u" savecurrent=false
+C {devices/vsource.sym} -180 -250 0 0 {name=vdvdd value="dc \{DVDD\} pulse 0 \{DVDD\} 1u 1u" savecurrent=false
 }
 C {devices/gnd.sym} 430 -60 0 0 {name=l2 lab=GND}
 C {devices/vsource.sym} -40 -130 0 0 {name=vena value="\{AVDD\}" savecurrent=false
@@ -95,4 +100,6 @@ C {devices/vsource.sym} -40 -130 0 0 {name=vena value="\{AVDD\}" savecurrent=fal
 C {devices/vsource.sym} 170 -130 0 0 {name=vref value=1.2 savecurrent=false}
 C {devices/lab_pin.sym} 750 -430 0 1 {name=p9 sig_type=std_logic lab=vout}
 C {devices/vsource.sym} 60 -130 0 0 {name=vsel value="\{AVDD\}" savecurrent=false
+}
+C {devices/vsource.sym} -260 -320 0 0 {name=vavdd1 value="dc \{AVDD\} pulse 0 \{AVDD\} 1u 1u" savecurrent=false
 }
